@@ -1,8 +1,8 @@
 import generateToken from "../libs/token.js";
 
-const authControl = async () => {
+const authControl = async (req, res) => {
     let token =  await generateToken(); 
-    return {state: true, token}   
+    res.send({state:true, token})
 }
 
 export default authControl; 
