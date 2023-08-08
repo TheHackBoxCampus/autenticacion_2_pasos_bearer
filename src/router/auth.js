@@ -4,8 +4,10 @@ import authControl from "../controllers/auth.controller.js";
 
 const auth = Router();
 
-auth.get("/profile", (req,res) => {
-   res.send(req.headers)
+auth.get("/login", authControl)
+
+auth.get("/profile", passport.authenticate('bearer', {session: false}) , (req, res) => {
+   res.send("authenticated")
 })
 
 export default auth; 
